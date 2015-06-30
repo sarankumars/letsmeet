@@ -1,11 +1,11 @@
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'letsMeetApp' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.services' is found in services.js
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+// 'letsMeetApp.services' is found in services.js
+// 'letsMeetApp.controllers' is found in controllers.js
+angular.module('letsMeetApp', ['ionic', 'letsMeetApp.utils', 'letsMeetApp.controllers', 'letsMeetApp.services'])
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom');
@@ -62,12 +62,12 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
-  .state('tab.chat-detail', {
-      url: '/dash/:chatId',
+  .state('tab.event-detail', {
+      url: '/dash/:eventId',
       views: {
         'tab-dash': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+          templateUrl: 'templates/event-detail.html',
+          controller: 'EventDetailCtrl'
         }
       }
   })

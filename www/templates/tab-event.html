@@ -1,33 +1,36 @@
 
 <ion-view view-title="Lets Meet">
   <ion-content class="padding">
+  <form name="addEventForm" >
   <div class="list">
     <label class="item item-input item-stacked-label">
-      <span class="input-label">Event</span>
-      <input type="text" placeholder="Football">
+      <span class="input-label">Event</span> <i>{{newEventName}}</i>
+      <input name="newEventName" type="text" placeholder="Enter event name here" ng-model="newEventName" required>
     </label>
     <label class="item item-input item-stacked-label">
-      <span class="input-label">Location</span>
-      <input type="text" placeholder="Main Street Park, LA">
+      <span class="input-label">Location</span> <i>{{newEventLocation}}</i>
+      <input name="newEventLocation" type="text" placeholder="Enter event locaiton here" ng-model="newEventLocation" required>
     </label>
     <label class="item item-input item-stacked-label">
-      <span class="input-label">Date</span>
-      <input type="date" >
+      <span class="input-label">Date</span> <i>{{newEventDate}}</i>
+      <input name="newEventDate" type="date" ng-model="newEventDate" required>
     </label>
     <label class="item item-input item-stacked-label">
-      <span class="input-label">Time</span>
-      <input type="time" >
+      <span class="input-label">Time</span><i>{{newEventTime}}</i>
+      <input name="newEventTime" type="time" ng-model="newEventTime" required>
     </label>    
+    <!--
     <label class="item item-input item-stacked-label">
       <span class="input-label">Invite Friends</span>
       <button class="button icon-center ion-ios-personadd"></button>
     </label>   
+    -->
   </div>
   <div class="button-bar">
-    <a class="button icon-center ion-ios-paperplane"></a>
+    <a class="button icon-center ion-ios-paperplane" ng-click="addEventFunc()"></a>
     <a class="button icon-center ion-ios-undo"></a>
   </div>
-
+  </form>
   </ion-content>
 </ion-view
 

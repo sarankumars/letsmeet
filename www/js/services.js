@@ -1,10 +1,10 @@
-angular.module('starter.services', [])
+angular.module('letsMeetApp.services', [])
 
-.factory('Chats', function() {
+.factory('Events', function() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
-  var chats = [{
+  var events = [{
     id: 0,
     event: 'Soccer',
     location: 'Bill Barber Park',
@@ -30,15 +30,15 @@ angular.module('starter.services', [])
 
   return {
     all: function() {
-      return chats;
+      return events;
     },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
+    remove: function(event) {
+      events.splice(events.indexOf(event), 1);
     },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
+    get: function(eventId) {
+      for (var i = 0; i < events.length; i++) {
+        if (events[i].id === parseInt(eventId)) {
+          return events[i];
         }
       }
       return null;

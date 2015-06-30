@@ -1,15 +1,13 @@
 <ion-view view-title="Lets Meet">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/dash/{{chat.id}}">
-        <img ng-src="{{chat.icon}}">
-        <h2>{{chat.event}}</h2>
-        <p>{{chat.location}}</p>
-        <p>{{chat.date}}</p>
-        <p>{{chat.time}}</p>
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="event in events" type="item-text-wrap" href="#/tab/dash/{{event.id}}">
+        <img ng-src="{{event.icon}}">
+        <h2>{{event.event}}</h2>
+        <p>{{event.location}}</p>
+        <p>{{event.date}} @ {{event.time}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+        <ion-option-button class="button-assertive" ng-click="remove(event)">
           Delete
         </ion-option-button>
       </ion-item>

@@ -1,8 +1,76 @@
-angular.module('starter.controllers', [])
+angular.module('letsMeetApp.controllers', [])
 
-.controller('EventCtrl', function($scope) {})
+.controller('EventCtrl', ['$scope', function($scope) {
 
-.controller('DashCtrl', function($scope, Chats) {
+    $scope.allEvents = [];  // Array that will hold all allEvents      
+    $scope.failed = '';    // A message displayed if the form fails to submit
+
+    // For each item in local storage...
+    for( item in localStorage ) {
+        // Parse the JSON string and add it to allEvents array
+        var newItem = JSON.parse( localStorage[item] );
+        $scope.allEvents.push( newItem );
+    }
+
+    // Submit new contact with values from the form fields, then reset values of the fields
+    $scope.addEventFunc = function() {   
+
+        // Angular has special directives for forms, and a form name attribute allows that form to be accessed through the scope, which is where we get '$scope.addContactForm'
+        // Read more here: docs.angularjs.org/api/ng/directive/form
+
+        // If all required fields are complete 
+
+	//window.alert("Alert1 - ");
+        //if( !$scope.addEventForm.$error.required ) { 
+
+
+            // Remove warning
+            $scope.failed = '';
+
+	    window.alert("Alert2 - " + $scope.newEventName);
+            // Store event data in an object         
+            var newEvent = {
+                id: localStorage.length,    // id is used to identify this property when being delete from  storage  
+                eventName: $scope.newEventName,
+                eventLocation: $scope.newEventLocaiton,
+                eventDate: $scope.newEventDate,
+                eventTime: $scope.newEventTime
+            };  
+
+            // Add event object to localStorage as the value to a new property
+            localStorage.setItem( 'item' + localStorage.length, JSON.stringify(newEvent) );
+
+            // Add new event object to the model by adding it to the allEvents array
+            $scope.allEvents.push( newEvent );
+
+            // Reset the inputs values for the form
+            $scope.newEventName = '';
+            $scope.newEventLocation = '';
+            $scope.newEventDate = '';
+            $scope.newEventTime = '';
+        //} else {
+	window.alert("Alert3 - ");
+        //    // Add warning
+        //    $scope.failed = 'All fields must be filled.';
+        //}
+
+    };
+
+    $scope.deleteEvent = function(index, item) {
+
+        // index param is an ngRepeat variable
+        // Read more here: docs.angularjs.org/api/ng/directive/ngRepeat
+
+        // Delete item from localStorage
+        localStorage.removeItem( 'item' + item.id );
+
+        // Remove item from the allEvents array
+        $scope.allEvents.splice( index, 1 );
+
+    }
+}])
+
+.controller('DashCtrl', function($scope, Events) {
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
   // To listen for when this page is active (for example, to refresh data),
@@ -11,14 +79,14 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
   
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
+  $scope.events = Events.all();
+  $scope.remove = function(event) {
+    Events.remove(event);
   }
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
+.controller('EventDetailCtrl', function($scope, $stateParams, Events) {
+  $scope.event = Events.get($stateParams.eventId);
 })
 
 .controller('GroupsCtrl', function($scope) {})
