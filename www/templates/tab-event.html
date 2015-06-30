@@ -5,26 +5,24 @@
   <div class="list">
     <label class="item item-input item-stacked-label">
       <span class="input-label">Event</span> <i>{{newEventName}}</i>
-      <input name="newEventName" type="text" placeholder="Enter event name here" ng-model="newEventName" required>
+      <input type="text" placeholder="Enter event name here" ng-model="formData.newEventName" required>
     </label>
     <label class="item item-input item-stacked-label">
       <span class="input-label">Location</span> <i>{{newEventLocation}}</i>
-      <input name="newEventLocation" type="text" placeholder="Enter event locaiton here" ng-model="newEventLocation" required>
+      <input type="text" placeholder="Enter event locaiton here" ng-model="formData.newEventLocation" required>
     </label>
     <label class="item item-input item-stacked-label">
       <span class="input-label">Date</span> <i>{{newEventDate}}</i>
-      <input name="newEventDate" type="date" ng-model="newEventDate" required>
+      <input type="date" ng-model="formData.newEventDate" required>
     </label>
     <label class="item item-input item-stacked-label">
       <span class="input-label">Time</span><i>{{newEventTime}}</i>
-      <input name="newEventTime" type="time" ng-model="newEventTime" required>
-    </label>    
-    <!--
+      <input type="time" ng-model="formData.newEventTime" required>
+    </label> 
     <label class="item item-input item-stacked-label">
       <span class="input-label">Invite Friends</span>
       <button class="button icon-center ion-ios-personadd"></button>
     </label>   
-    -->
   </div>
   <div class="button-bar">
     <a class="button icon-center ion-ios-paperplane" ng-click="addEventFunc()"></a>

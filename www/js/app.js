@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'letsMeetApp.services' is found in services.js
 // 'letsMeetApp.controllers' is found in controllers.js
-angular.module('letsMeetApp', ['ionic', 'letsMeetApp.utils', 'letsMeetApp.controllers', 'letsMeetApp.services'])
+angular.module('letsMeetApp', ['ionic', 'letsMeetApp.controllers', 'letsMeetApp.services'])
 
 .config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
   $ionicConfigProvider.tabs.position('bottom');

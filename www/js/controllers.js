@@ -2,6 +2,7 @@ angular.module('letsMeetApp.controllers', [])
 
 .controller('EventCtrl', ['$scope', function($scope) {
 
+    $scope.formData = {};
     $scope.allEvents = [];  // Array that will hold all allEvents      
     $scope.failed = '';    // A message displayed if the form fails to submit
 
@@ -20,21 +21,21 @@ angular.module('letsMeetApp.controllers', [])
 
         // If all required fields are complete 
 
-	//window.alert("Alert1 - ");
         //if( !$scope.addEventForm.$error.required ) { 
 
 
             // Remove warning
             $scope.failed = '';
 
-	    window.alert("Alert2 - " + $scope.newEventName);
+	    //window.alert("Alert - " + $scope.formData.newEventName);
+            //console.log($scope.formData.newEventName);
             // Store event data in an object         
             var newEvent = {
-                id: localStorage.length,    // id is used to identify this property when being delete from  storage  
-                eventName: $scope.newEventName,
-                eventLocation: $scope.newEventLocaiton,
-                eventDate: $scope.newEventDate,
-                eventTime: $scope.newEventTime
+                id: localStorage.length,
+                eventName: $scope.formData.newEventName,
+                eventLocation: $scope.formData.newEventLocation,
+                eventDate: $scope.formData.newEventDate,
+                eventTime: $scope.formData.newEventTime
             };  
 
             // Add event object to localStorage as the value to a new property
@@ -44,12 +45,11 @@ angular.module('letsMeetApp.controllers', [])
             $scope.allEvents.push( newEvent );
 
             // Reset the inputs values for the form
-            $scope.newEventName = '';
-            $scope.newEventLocation = '';
-            $scope.newEventDate = '';
-            $scope.newEventTime = '';
+            $scope.formData.newEventName = '';
+            $scope.formData.newEventLocation = '';
+            $scope.formData.newEventDate = '';
+            $scope.formData.newEventTime = '';
         //} else {
-	window.alert("Alert3 - ");
         //    // Add warning
         //    $scope.failed = 'All fields must be filled.';
         //}
