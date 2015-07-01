@@ -39,7 +39,8 @@ angular.module('letsMeetApp.controllers', [])
             };  
 
             // Add event object to localStorage as the value to a new property
-            localStorage.setItem( 'item' + localStorage.length, JSON.stringify(newEvent) );
+            //localStorage.setItem( 'item' + localStorage.length, JSON.stringify(newEvent) );
+           localStorage.setItem( 'item', JSON.stringify(newEvent) );
 
             // Add new event object to the model by adding it to the allEvents array
             $scope.allEvents.push( newEvent );

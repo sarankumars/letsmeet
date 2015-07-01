@@ -4,7 +4,29 @@ angular.module('letsMeetApp.services', [])
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
+  
+  var retrievedEvents = localStorage.getItem('item');
+  
+  //window.alert(retrievedEvents);
+  
+  var eventLists = JSON.parse(retrievedEvents);
+  
+  var eventName = eventLists['eventName'];
+  var eventLoc = eventLists["eventLocation"];
+  var eventDate = eventLists["eventDate"];
+  var eventTime = eventLists["eventTime"];
+  
   var events = [{
+ 	id: 0,
+    event: eventName,
+    location: eventLoc,
+    date: eventDate,
+    time: eventTime,
+    icon: 'img/events/soccer.png'
+ 	}
+  	]; 
+  	
+/*  var events = [{
     id: 0,
     event: 'Soccer',
     location: 'Bill Barber Park',
@@ -26,7 +48,7 @@ angular.module('letsMeetApp.services', [])
     time: '02:00 PM',
     icon: 'img/events/swimming.png'
   }
-  ];
+  ]; */
 
   return {
     all: function() {
